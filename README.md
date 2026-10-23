@@ -13,3 +13,6 @@ Run locally
     python manage.py runserver
 
 Then open http://127.0.0.1:8000
+
+http://3.14.13.91/ 
+(this is the to-do application url)
