@@ -1,0 +1,13 @@
+{% extends "todos/base.html" %}
+{% block content %}
+<form method="post" class="card">{% csrf_token %}
+  <h2>Add a task</h2>
+  {{ form.non_field_errors }}
+  {{ form.title.errors }}{{ form.title }}
+  {{ form.notes }}
+  <label>Due date (optional)</label>{{ form.due_date }}
+  <button type="submit">Add task</button>
+</form>
+<h2>All tasks</h2>
+{% include "todos/_task_list.html" with tasks=tasks %}
+{% endblock %}

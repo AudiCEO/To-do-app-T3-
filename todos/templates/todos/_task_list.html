@@ -1,0 +1,22 @@
+<ul>
+  {% for task in tasks %}
+  <li class="{% if task.done %}done{% endif %}">
+    <form method="post" action="{% url 'toggle' task.pk %}">{% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <button type="submit" title="Mark done / not done">{% if task.done %}&#9745;{% else %}&#9744;{% endif %}</button>
+    </form>
+    <div class="text">
+      <div class="title">{{ task.title }}</div>
+      <div class="meta">
+        {% if task.due_date %}Due {{ task.due_date }}{% endif %}
+        {% if task.notes %}{% if task.due_date %} · {% endif %}{{ task.notes }}{% endif %}
+      </div>
+    </div>
+    <form method="post" action="{% url 'delete' task.pk %}">{% csrf_token %}
+      <button type="submit" title="Delete">Delete</button>
+    </form>
+  </li>
+  {% empty %}
+  <li class="empty">No tasks to show.</li>
+  {% endfor %}
+</ul>

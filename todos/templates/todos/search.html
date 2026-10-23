@@ -1,0 +1,12 @@
+{% extends "todos/base.html" %}
+{% block content %}
+<form method="get" class="card">
+  <h2>Search tasks</h2>
+  <input type="text" name="q" value="{{ query }}" placeholder="Enter a keyword" autofocus>
+  <button type="submit">Search</button>
+</form>
+{% if query %}
+  <h2>{{ results|length }} result{{ results|length|pluralize }} for "{{ query }}"</h2>
+  {% include "todos/_task_list.html" with tasks=results %}
+{% endif %}
+{% endblock %}
