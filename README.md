@@ -1,13 +1,13 @@
-# To-Do List (Django)
+To-do list application (Django)
 
-Simple to-do list web app for the Tech Exercise.
+This is a simple to do list web app for the Tech Exercise.
 
-- **Framework:** Django
-- **Database:** SQLite
-- **Insert feature:** add a task (title, notes, optional due date) on the home page
-- **Search feature:** keyword search across task titles and notes on the Search page
+- Framework: Django
+- Database: SQLite
+- Insert feature: add a task (title, notes, optional due date) on the home page
+- Search feature: keyword search across task titles and notes on the Search page
 
-## Run locally
+Run locally
     pip install -r requirements.txt
     python manage.py migrate
     python manage.py runserver
